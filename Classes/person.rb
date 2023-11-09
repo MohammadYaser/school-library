@@ -2,7 +2,7 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(id, age = 18, name: "Unknown", parent_permission: true)
+  def initialize(id, age = 18, name: 'Unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
@@ -20,13 +20,12 @@ class Person
   end
 end
 
-
 person = Person.new(1)
-puts person.id   # Retrieves the id
+puts person.id # Retrieves the id
 puts person.name # Retrieves the name
-puts person.age  # Retrieves the age
+puts person.age # Retrieves the age
 
-person.name = "Alice" # Sets a new name
-person.age = 25       # Sets a new age
-puts person.name      # Retrieves the updated name
-puts person.age       # Retrieves the updated age
+person.name = 'Alice' # Sets a new name
+person.age = 25 # Sets a new age
+puts person.name # Retrieves the updated name
+puts person.age # Retrieves the updated age
