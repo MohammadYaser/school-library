@@ -1,12 +1,15 @@
+# main.rb
 require_relative 'person'
 require_relative 'capitalize_decorator'
 require_relative 'trimmer_decorator'
 
+# Create a person
 person = Person.new(22, 'maximilianus')
-puts "Original Name: #{person.correct_name}"
+puts person.correct_name
 
+# Apply decorators directly to the person
 capitalized_person = CapitalizeDecorator.new(person)
-puts "Capitalized Name: #{capitalized_person.correct_name}"
+puts capitalized_person.correct_name
 
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts "Capitalized and Trimmed Name: #{capitalized_trimmed_person.correct_name}"
+capitalized_trimmed_person = TrimmerDecorator.new(person)
+puts capitalized_trimmed_person.correct_name
