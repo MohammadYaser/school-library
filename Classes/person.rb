@@ -1,31 +1,29 @@
-class Person
+require 'securerandom'
+require_relative 'nameable'
+require_relative 'trimmer_decorator'
+require_relative 'capitalize_decorator'
+
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(id, age = 18, name: 'Unknown', parent_permission: true)
-    @id = id
-    @name = name
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
+    @id = Random.rand(1..1000)
     @age = age
+    @name = name
     @parent_permission = parent_permission
+  end
+
+  def of_age?
+    @age >= 18
   end
 
   def can_use_services?
     of_age? || @parent_permission
   end
 
-  private
-
-  def of_age?
-    @age >= 18
+  def correct_name
+    @name
   end
 end
-
-person = Person.new(1)
-puts person.id # Retrieves the id
-puts person.name # Retrieves the name
-puts person.age # Retrieves the age
-
-person.name = 'Alice' # Sets a new name
-person.age = 25 # Sets a new age
-puts person.name # Retrieves the updated name
-puts person.age # Retrieves the updated age
