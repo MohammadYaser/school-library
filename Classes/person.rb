@@ -1,4 +1,3 @@
-require 'securerandom'
 require_relative 'nameable'
 require_relative 'trimmer_decorator'
 require_relative 'capitalize_decorator'
@@ -7,9 +6,9 @@ class Person < Nameable
   attr_reader :id, :rentals
   attr_accessor :name, :age
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name, parent_permission: true)
     super()
-    @id = SecureRandom.uuid
+    @id = Random.rand(1..1000)
     @age = age
     @name = name
     @parent_permission = parent_permission
